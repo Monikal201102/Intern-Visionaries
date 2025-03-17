@@ -1,0 +1,116 @@
+/* Full Page Centering */
+.auth-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  padding: 40px;
+}
+
+/* Card Design */
+.auth-card {
+  display: flex;
+  flex-direction: column; /* Changed to column for alignment */
+  width: 400px; /* Adjusted width */
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  align-items: center; /* Center align content */
+}
+
+/* Form Section */
+.auth-form-section {
+  flex: 1;
+  padding: 20px; /* Reduced padding */
+}
+
+/* Form Fields */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Reduced gap */
+  align-items: center; /* Center align form fields */
+}
+
+.auth-input {
+  width: 80%; /* Adjusted width */
+  padding: 12px; /* Adjusted padding */
+  font-size: 14px; /* Reduced font size */
+  border: 2px solid #d1d5db;
+  border-radius: 10px;
+  transition: 0.3s ease;
+  text-align: center; /* Center align text */
+}
+
+.auth-input:focus {
+  border-color: #2c5364;
+  outline: none;
+  box-shadow: 0 0 10px rgba(44, 83, 100, 0.3);
+}
+
+/* Button Styling */
+.auth-button {
+  width: 80%; /* Adjusted width */
+  background: #2c5364;
+  color: white;
+  padding: 12px; /* Adjusted padding */
+  font-size: 16px; /* Reduced font size */
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.auth-button:hover {
+  background: #203a43;
+}
+
+/* Toggle */
+.auth-toggle {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+}
+
+.auth-toggle span {
+  color: #2c5364;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-toggle span:hover {
+  text-decoration: underline;
+}
+
+.auth-logo-container {
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.auth-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: lightgreen;
+  text-shadow: 2px 2px 5px rgba(0, 255, 0, 0.5);
+}
+
+.auth-container {
+  padding: 40px;
+  text-align: center;
+  background-color: #E8E8E8; /* Light grey */
+}
+
+.auth-card {
+  background-color: #F5F5F5; /* Very light grey */
+  width: 300px; /* Adjusted width */
+  padding: 30px;
+  margin: 0 auto;
+  min-height: 500px; /* Adjusted height */
+}
