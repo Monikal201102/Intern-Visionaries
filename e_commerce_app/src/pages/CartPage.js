@@ -1,25 +1,17 @@
 import React, { useState, useEffect } from "react";
-import PaymentPage from "./PaymentPage"; // Import PaymentPage
 import "../styles/CartPage.css";
 
 const CartPage = () => {
   const [cart, setCart] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(null);
-  const [showPayment, setShowPayment] = useState(false);
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(storedCart);
   }, []);
 
-  const handleBuyNow = (item) => {
-    setSelectedItem(item); // Store selected item
-    setShowPayment(true);  // Show payment form
-  };
-
-  const closePaymentModal = () => {
-    setShowPayment(false);
-    setSelectedItem(null);
+  const handleBuyNow = () => {
+    alert("Proceeding to payment...");
+    // Redirect to payment page logic can be added here
   };
 
   return (
@@ -36,21 +28,10 @@ const CartPage = () => {
               <p>Price: ${item.price}</p>
               <p>Size: {item.size || "N/A"}</p>
               <p>Color: {item.color || "N/A"}</p>
-              <button className="buy-now" onClick={() => handleBuyNow(item)}>Buy Now</button>
+              <button className="buy-now" onClick={handleBuyNow}>Buy Now</button>
             </div>
           </div>
         ))
-      )}
-
-      {/* Payment Modal */}
-      {showPayment && (
-        <div className="modal-overlay">
-          <div className="modal-content">
-            <button className="close-button" onClick={closePaymentModal}>✖</button>
-            <h2>Payment Details</h2>
-            <PaymentPage selectedItem={selectedItem} />
-          </div>
-        </div>
       )}
     </div>
   );

@@ -1,10 +1,9 @@
-// src/App.js
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import HomePage from "./pages/HomePage";
-import AuthPage from "./pages/AuthPage"; // ✅ Updated to use AuthPage
+import LoginPage from "./pages/LoginPage";
 import ProductDetails from "./pages/ProductDetails";
 import CartPage from "./pages/CartPage";
 import PaymentPage from "./pages/PaymentPage";
@@ -24,7 +23,7 @@ const App = () => {
           <Header />
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<AuthPage />} /> {/* ✅ Fixed Sign In route */}
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/product/:id" element={<ProductDetails />} />
             <Route path="/cart" element={<CartPage />} />
             <Route path="/payment" element={<PaymentPage />} />

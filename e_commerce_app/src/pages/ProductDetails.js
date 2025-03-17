@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import "../styles/ProductDetails.css";
 
@@ -16,7 +16,6 @@ const extractBrand = (title) => {
 
 const ProductDetails = () => {
   const { id } = useParams();
-  const navigate = useNavigate(); // Hook for navigation
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [similarProducts, setSimilarProducts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
@@ -24,6 +23,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const fetchProductDetails = async () => {
       try {
+        // Fetch selected product details
         const { data } = await axios.get(`https://fakestoreapi.com/products/${id}`);
         setSelectedProduct(data);
         const lowerTitle = data.title.toLowerCase();
@@ -66,15 +66,11 @@ const ProductDetails = () => {
 
   if (!selectedProduct) return <p>Loading product details...</p>;
 
-  // ✅ Handle Buy Now Click
-  const handleBuyNow = () => {
-    navigate("/payment", { state: { selectedProduct } }); // Pass product details to the payment page
-  };
-
   return (
     <div className="product-details-page">
       {/* Selected Product Details */}
       <div className="selected-product">
+        {/* Click to Open Full Image */}
         <img
           src={selectedProduct.image}
           alt={selectedProduct.title}
@@ -90,7 +86,7 @@ const ProductDetails = () => {
           <div className="action-buttons">
             <button className="add-to-cart">Add to Cart</button>
             <button className="wishlist-btn">❤️ Add to Wishlist</button>
-            <button className="buy-now" onClick={handleBuyNow}>🛒 Buy Now</button> 
+            <button className="buy-now">🛒 Buy Now</button>
           </div>
         </div>
       </div>
